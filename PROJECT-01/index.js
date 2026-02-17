@@ -6,6 +6,19 @@ const PORT = 9000;
 
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next)=>{
+    console.log("Hello from middleware");
+    req.myUserName = "Shani.dev";
+    next();
+});
+
+
+app.use((req, res, next)=>{
+    console.log("Hello from middleware 2", req.myUserName);
+    next();
+});
+
+
 //Routes
 app.get('/users', (req, res) => {
     const html = `
@@ -18,6 +31,7 @@ app.get('/users', (req, res) => {
 
 // REST API
 app.get('/api/users', (req, res) => {
+    res.setHeader('myName', 'Shani');
     return res.json(users);
 });
 
