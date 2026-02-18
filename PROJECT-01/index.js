@@ -20,14 +20,14 @@ app.use((req, res, next)=>{
 
 
 //Routes
-app.get('/users', (req, res) => {
-    const html = `
-    <ul>
-    ${users.map(user => `<li>${user.first_name}</li>`).join('')}
-    </ul>
-    `;
-    res.send(html);
-    });
+// app.get('/users', (req, res) => {
+//     const html = `
+//     <ul>
+//     ${users.map(user => `<li>${user.first_name}</li>`).join('')}
+//     </ul>
+//     `;
+//     res.send(html);
+//     });
 
 // REST API
 app.get('/api/users', (req, res) => {
